@@ -1,0 +1,287 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.2 " "(v0_9_2)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x20ad3c0 .scope module, "main" "main" 2 37;
+ .timescale 0 0;
+v0x20ddff0_0 .var "CLK", 0 0;
+v0x20de200_0 .var "RST_N", 0 0;
+v0x20de2d0_0 .var "cycle", 31 0;
+v0x20de350_0 .var "do_cycles", 0 0;
+v0x20de3d0_0 .var "do_fsdb", 0 0;
+v0x20de450_0 .var "do_fst", 0 0;
+v0x20de4d0_0 .var "do_vcd", 0 0;
+S_0x20ac8a0 .scope module, "top" "mkClockTb" 2 48, 3 23, S_0x20ad3c0;
+ .timescale 0 0;
+v0x20dd410_0 .net "CLK", 0 0, v0x20ddff0_0; 1 drivers
+v0x20dd4b0_0 .net "RST_N", 0 0, v0x20de200_0; 1 drivers
+v0x20dd560_0 .net *"_s0", 7 0, C4<00000001>; 1 drivers
+v0x20dd8c0_0 .net "clock$EN_pause", 0 0, C4<0>; 1 drivers
+v0x20dd970_0 .net "clock$EN_setHH", 0 0, C4<0>; 1 drivers
+v0x20dda20_0 .net "clock$EN_setMM", 0 0, C4<0>; 1 drivers
+v0x20ddaa0_0 .net "clock$EN_setSS", 0 0, C4<0>; 1 drivers
+v0x20ddb50_0 .net "clock$EN_start", 0 0, C4<0>; 1 drivers
+v0x20ddc00_0 .net "clock$dataHHMM", 10 0, L_0x20de750; 1 drivers
+v0x20ddcb0_0 .net "clock$dataMMSS", 11 0, L_0x20de920; 1 drivers
+v0x20ddd60_0 .net "clock$setHH_hh", 4 0, C4<00000>; 1 drivers
+v0x20dde10_0 .net "clock$setMM_mm", 5 0, C4<000000>; 1 drivers
+v0x20ddec0_0 .net "clock$setSS_ss", 5 0, C4<000000>; 1 drivers
+v0x20ddf70_0 .var "decelerator", 7 0;
+v0x20de070_0 .net "decelerator$D_IN", 7 0, L_0x20e08c0; 1 drivers
+v0x20de0f0_0 .net "decelerator$EN", 0 0, C4<1>; 1 drivers
+E_0x20bbbd0 .event negedge, v0x20bc010_0;
+L_0x20e08c0 .arith/sum 8, v0x20ddf70_0, C4<00000001>;
+S_0x20acb00 .scope module, "clock" "mkClock" 3 45, 4 72, S_0x20ac8a0;
+ .timescale 0 0;
+L_0x20df980 .functor AND 1, L_0x20df640, L_0x20df8e0, C4<1>, C4<1>;
+L_0x20df7b0 .functor AND 1, L_0x20df980, L_0x20dfac0, C4<1>, C4<1>;
+L_0x20dfc90 .functor OR 1, L_0x20df7b0, C4<0>, C4<0>, C4<0>;
+L_0x20e0040 .functor AND 1, L_0x20dfe70, L_0x20dff10, C4<1>, C4<1>;
+L_0x20e0140 .functor OR 1, L_0x20e0040, C4<0>, C4<0>, C4<0>;
+L_0x20e0280 .functor BUFZ 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0x20e0330 .functor OR 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0x20e0570 .functor OR 1, C4<0>, L_0x20dfdd0, C4<0>, C4<0>;
+L_0x20df400 .functor BUFZ 5, L_0x20deca0, C4<00000>, C4<00000>, C4<00000>;
+L_0x20e0fa0 .functor BUFZ 6, L_0x20def30, C4<000000>, C4<000000>, C4<000000>;
+L_0x20e1000 .functor BUFZ 6, L_0x20df270, C4<000000>, C4<000000>, C4<000000>;
+v0x20bc010_0 .alias "CLK", 0 0, v0x20dd410_0;
+v0x20da8f0_0 .alias "EN_pause", 0 0, v0x20dd8c0_0;
+v0x20da990_0 .alias "EN_setHH", 0 0, v0x20dd970_0;
+v0x20daa30_0 .alias "EN_setMM", 0 0, v0x20dda20_0;
+v0x20daae0_0 .alias "EN_setSS", 0 0, v0x20ddaa0_0;
+v0x20dab80_0 .alias "EN_start", 0 0, v0x20ddb50_0;
+v0x20dac60_0 .net "MUX_hrs$write_1__VAL_2", 4 0, L_0x20deca0; 1 drivers
+v0x20dad00_0 .net "MUX_min$write_1__VAL_2", 5 0, L_0x20def30; 1 drivers
+v0x20dadf0_0 .net "MUX_sec$write_1__VAL_2", 5 0, L_0x20df270; 1 drivers
+v0x20dae90_0 .net "RDY_dataHHMM", 0 0, C4<1>; 1 drivers
+v0x20daf90_0 .net "RDY_dataMMSS", 0 0, C4<1>; 1 drivers
+v0x20db030_0 .net "RDY_pause", 0 0, C4<1>; 1 drivers
+v0x20db140_0 .net "RDY_setHH", 0 0, C4<1>; 1 drivers
+v0x20db1e0_0 .net "RDY_setMM", 0 0, C4<1>; 1 drivers
+v0x20db300_0 .net "RDY_setSS", 0 0, C4<1>; 1 drivers
+v0x20db3a0_0 .net "RDY_start", 0 0, C4<1>; 1 drivers
+v0x20db260_0 .alias "RST_N", 0 0, v0x20dd4b0_0;
+v0x20db4f0_0 .net *"_s102", 4 0, C4<00001>; 1 drivers
+v0x20db610_0 .net *"_s18", 4 0, C4<10111>; 1 drivers
+v0x20db690_0 .net *"_s20", 0 0, L_0x20deb30; 1 drivers
+v0x20db570_0 .net *"_s22", 4 0, C4<00000>; 1 drivers
+v0x20db7c0_0 .net *"_s26", 5 0, C4<111011>; 1 drivers
+v0x20db710_0 .net *"_s28", 0 0, L_0x20dee50; 1 drivers
+v0x20db900_0 .net *"_s30", 5 0, C4<000000>; 1 drivers
+v0x20db860_0 .net *"_s34", 5 0, C4<111011>; 1 drivers
+v0x20dba50_0 .net *"_s36", 0 0, L_0x20df0f0; 1 drivers
+v0x20db9a0_0 .net *"_s38", 5 0, C4<000000>; 1 drivers
+v0x20dbbb0_0 .net *"_s42", 16 0, C4<00000000000000001>; 1 drivers
+v0x20dbaf0_0 .net *"_s50", 16 0, C4<00000000000000000>; 1 drivers
+v0x20dbd20_0 .net *"_s52", 0 0, L_0x20df640; 1 drivers
+v0x20dbc30_0 .net *"_s54", 5 0, C4<111011>; 1 drivers
+v0x20dbea0_0 .net *"_s56", 0 0, L_0x20df8e0; 1 drivers
+v0x20dbda0_0 .net *"_s58", 0 0, L_0x20df980; 1 drivers
+v0x20dc030_0 .net *"_s60", 5 0, C4<111011>; 1 drivers
+v0x20dbf20_0 .net *"_s62", 0 0, L_0x20dfac0; 1 drivers
+v0x20dc1d0_0 .net *"_s64", 0 0, L_0x20df7b0; 1 drivers
+v0x20dc0b0_0 .net *"_s70", 16 0, C4<00000000000000000>; 1 drivers
+v0x20dc150_0 .net *"_s72", 0 0, L_0x20dfe70; 1 drivers
+v0x20dc390_0 .net *"_s74", 5 0, C4<111011>; 1 drivers
+v0x20dc410_0 .net *"_s76", 0 0, L_0x20dff10; 1 drivers
+v0x20dc250_0 .net *"_s78", 0 0, L_0x20e0040; 1 drivers
+v0x20dc2f0_0 .net *"_s88", 16 0, C4<00000000000000000>; 1 drivers
+v0x20dc5f0_0 .net *"_s90", 0 0, L_0x20dfdd0; 1 drivers
+v0x20dc670_0 .net *"_s94", 5 0, C4<000001>; 1 drivers
+v0x20dc490_0 .net *"_s98", 5 0, C4<000001>; 1 drivers
+v0x20dc530_0 .alias "dataHHMM", 10 0, v0x20ddc00_0;
+v0x20dc870_0 .alias "dataMMSS", 11 0, v0x20ddcb0_0;
+v0x20dc8f0_0 .var "decelerator", 16 0;
+v0x20dc710_0 .net "decelerator$D_IN", 16 0, L_0x20df480; 1 drivers
+v0x20dc7b0_0 .net "decelerator$EN", 0 0, v0x20dcc10_0; 1 drivers
+v0x20dcb10_0 .var "hrs", 4 0;
+v0x20dcb90_0 .net "hrs$D_IN", 4 0, L_0x20df400; 1 drivers
+v0x20dc990_0 .net "hrs$EN", 0 0, L_0x20dfc90; 1 drivers
+v0x20dca30_0 .var "min", 5 0;
+v0x20dcdd0_0 .net "min$D_IN", 5 0, L_0x20e0fa0; 1 drivers
+v0x20dce50_0 .net "min$EN", 0 0, L_0x20e0140; 1 drivers
+v0x20dcc10_0 .var "running", 0 0;
+v0x20dccb0_0 .net "running$D_IN", 0 0, L_0x20e0280; 1 drivers
+v0x20dcd50_0 .net "running$EN", 0 0, L_0x20e0330; 1 drivers
+v0x20dd0d0_0 .var "sec", 5 0;
+v0x20dcef0_0 .net "sec$D_IN", 5 0, L_0x20e1000; 1 drivers
+v0x20dcf90_0 .net "sec$EN", 0 0, L_0x20e0570; 1 drivers
+v0x20dd030_0 .alias "setHH_hh", 4 0, v0x20ddd60_0;
+v0x20dd370_0 .alias "setMM_mm", 5 0, v0x20dde10_0;
+v0x20dd170_0 .alias "setSS_ss", 5 0, v0x20ddec0_0;
+v0x20dd210_0 .net "x__h319", 5 0, L_0x20e06b0; 1 drivers
+v0x20dd2b0_0 .net "x__h358", 5 0, L_0x20e0430; 1 drivers
+v0x20dd610_0 .net "x__h390", 4 0, L_0x20e0a60; 1 drivers
+E_0x20ba860 .event posedge, v0x20bc010_0;
+L_0x20de750 .concat [ 6 5 0 0], v0x20dca30_0, v0x20dcb10_0;
+L_0x20de920 .concat [ 6 6 0 0], v0x20dd0d0_0, v0x20dca30_0;
+L_0x20deb30 .cmp/eq 5, v0x20dcb10_0, C4<10111>;
+L_0x20deca0 .functor MUXZ 5, L_0x20e0a60, C4<00000>, L_0x20deb30, C4<>;
+L_0x20dee50 .cmp/eq 6, v0x20dca30_0, C4<111011>;
+L_0x20def30 .functor MUXZ 6, L_0x20e0430, C4<000000>, L_0x20dee50, C4<>;
+L_0x20df0f0 .cmp/eq 6, v0x20dd0d0_0, C4<111011>;
+L_0x20df270 .functor MUXZ 6, L_0x20e06b0, C4<000000>, L_0x20df0f0, C4<>;
+L_0x20df480 .arith/sum 17, v0x20dc8f0_0, C4<00000000000000001>;
+L_0x20df640 .cmp/eq 17, v0x20dc8f0_0, C4<00000000000000000>;
+L_0x20df8e0 .cmp/eq 6, v0x20dd0d0_0, C4<111011>;
+L_0x20dfac0 .cmp/eq 6, v0x20dca30_0, C4<111011>;
+L_0x20dfe70 .cmp/eq 17, v0x20dc8f0_0, C4<00000000000000000>;
+L_0x20dff10 .cmp/eq 6, v0x20dd0d0_0, C4<111011>;
+L_0x20dfdd0 .cmp/eq 17, v0x20dc8f0_0, C4<00000000000000000>;
+L_0x20e06b0 .arith/sum 6, v0x20dd0d0_0, C4<000001>;
+L_0x20e0430 .arith/sum 6, v0x20dca30_0, C4<000001>;
+L_0x20e0a60 .arith/sum 5, v0x20dcb10_0, C4<00001>;
+    .scope S_0x20acb00;
+T_0 ;
+    %wait E_0x20ba860;
+    %load/v 8, v0x20db260_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 17, 0;
+    %assign/v0 v0x20dc8f0_0, 0, 0;
+    %movi 8, 12, 5;
+    %ix/load 0, 5, 0;
+    %assign/v0 v0x20dcb10_0, 0, 8;
+    %ix/load 0, 6, 0;
+    %assign/v0 v0x20dca30_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x20dcc10_0, 0, 1;
+    %ix/load 0, 6, 0;
+    %assign/v0 v0x20dd0d0_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0x20dc7b0_0, 1;
+    %jmp/0xz  T_0.2, 8;
+    %load/v 8, v0x20dc710_0, 17;
+    %ix/load 0, 17, 0;
+    %assign/v0 v0x20dc8f0_0, 0, 8;
+T_0.2 ;
+    %load/v 8, v0x20dc990_0, 1;
+    %jmp/0xz  T_0.4, 8;
+    %load/v 8, v0x20dcb90_0, 5;
+    %ix/load 0, 5, 0;
+    %assign/v0 v0x20dcb10_0, 0, 8;
+T_0.4 ;
+    %load/v 8, v0x20dce50_0, 1;
+    %jmp/0xz  T_0.6, 8;
+    %load/v 8, v0x20dcdd0_0, 6;
+    %ix/load 0, 6, 0;
+    %assign/v0 v0x20dca30_0, 0, 8;
+T_0.6 ;
+    %load/v 8, v0x20dcd50_0, 1;
+    %jmp/0xz  T_0.8, 8;
+    %load/v 8, v0x20dccb0_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x20dcc10_0, 0, 8;
+T_0.8 ;
+    %load/v 8, v0x20dcf90_0, 1;
+    %jmp/0xz  T_0.10, 8;
+    %load/v 8, v0x20dcef0_0, 6;
+    %ix/load 0, 6, 0;
+    %assign/v0 v0x20dd0d0_0, 0, 8;
+T_0.10 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x20acb00;
+T_1 ;
+    %movi 8, 43690, 17;
+    %set/v v0x20dc8f0_0, 8, 17;
+    %movi 8, 10, 5;
+    %set/v v0x20dcb10_0, 8, 5;
+    %movi 8, 42, 6;
+    %set/v v0x20dca30_0, 8, 6;
+    %set/v v0x20dcc10_0, 0, 1;
+    %movi 8, 42, 6;
+    %set/v v0x20dd0d0_0, 8, 6;
+    %end;
+    .thread T_1;
+    .scope S_0x20ac8a0;
+T_2 ;
+    %wait E_0x20ba860;
+    %load/v 8, v0x20dd4b0_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_2.0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v0x20ddf70_0, 0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/v 8, v0x20de0f0_0, 1;
+    %jmp/0xz  T_2.2, 8;
+    %load/v 8, v0x20de070_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v0x20ddf70_0, 0, 8;
+T_2.2 ;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x20ac8a0;
+T_3 ;
+    %movi 8, 170, 8;
+    %set/v v0x20ddf70_0, 8, 8;
+    %end;
+    .thread T_3;
+    .scope S_0x20ac8a0;
+T_4 ;
+    %wait E_0x20bbbd0;
+    %delay 0, 0;
+    %load/v 8, v0x20dd4b0_0, 1;
+    %jmp/0xz  T_4.0, 8;
+    %load/v 8, v0x20ddf70_0, 8;
+    %cmpi/u 8, 0, 8;
+    %jmp/0xz  T_4.2, 4;
+    %vpi_call 3 112 "$display", "%d %d %d\012", &PV<v0x20ddc00_0, 6, 5>, &PV<v0x20ddc00_0, 0, 6>, &PV<v0x20ddcb0_0, 0, 6>;
+T_4.2 ;
+T_4.0 ;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_0x20ad3c0;
+T_5 ;
+    %set/v v0x20de2d0_0, 0, 32;
+    %vpi_func 2 71 "$test$plusargs", 8, 32, "bscvcd";
+    %set/v v0x20de4d0_0, 8, 1;
+    %vpi_func 2 72 "$test$plusargs", 8, 32, "bscfst";
+    %set/v v0x20de450_0, 8, 1;
+    %vpi_func 2 73 "$test$plusargs", 8, 32, "bscfsdb";
+    %set/v v0x20de3d0_0, 8, 1;
+    %vpi_func 2 74 "$test$plusargs", 8, 32, "bsccycle";
+    %set/v v0x20de350_0, 8, 1;
+    %load/v 8, v0x20de4d0_0, 1;
+    %jmp/0xz  T_5.0, 8;
+    %vpi_call 2 89 "$dumpfile", "dump.vcd";
+    %vpi_call 2 90 "$dumpvars", 1'sb0, S_0x20ad3c0;
+T_5.0 ;
+    %delay 0, 0;
+    %set/v v0x20de200_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x20ddff0_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x20de200_0, 1, 1;
+    %end;
+    .thread T_5;
+    .scope S_0x20ad3c0;
+T_6 ;
+    %delay 1, 0;
+    %load/v 8, v0x20de350_0, 1;
+    %jmp/0xz  T_6.0, 8;
+    %vpi_call 2 112 "$display", "cycle %0d", v0x20de2d0_0;
+T_6.0 ;
+    %load/v 8, v0x20de2d0_0, 32;
+    %mov 40, 0, 1;
+   %addi 8, 1, 33;
+    %set/v v0x20de2d0_0, 8, 32;
+    %delay 4, 0;
+    %set/v v0x20ddff0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x20ddff0_0, 1, 1;
+    %jmp T_6;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "/opt/Bluespec-2011.06.D/lib/Verilog/main.v";
+    "./mkClockTb.v";
+    "./mkClock.v";
